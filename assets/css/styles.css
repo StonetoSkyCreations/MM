@@ -3,8 +3,8 @@
   --surface: #ffffff;
   --text: #1f2a32;
   --muted: #4e5c65;
-  --accent: #2f6f7a;
-  --accent-soft: #f0f6f7;
+  --accent: #6d98ba;
+  --accent-soft: #e8f1f7;
   --border: #dce2e7;
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
   --max-width: 1100px;
@@ -67,7 +67,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
 }
 
 .brand {
