@@ -85,10 +85,11 @@ img {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav a {
@@ -114,11 +115,13 @@ img {
 .nav-primary {
   background: var(--accent);
   color: #fff;
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: 12px;
   font-weight: 600;
   box-shadow: var(--shadow);
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  margin-left: 4px;
+  flex-shrink: 0;
 }
 
 .nav-primary:hover,
@@ -419,6 +422,7 @@ hr {
   .nav-list.open { display: flex; flex-direction: column; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); padding: var(--spacing-md); position: absolute; top: 64px; right: var(--spacing-md); width: min(320px, 90vw); }
   .nav-toggle { display: inline-flex; }
   main { padding-top: var(--spacing-xl); }
+  .nav-list.open .nav-primary { width: 100%; justify-content: center; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

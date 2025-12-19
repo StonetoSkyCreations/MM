@@ -1,15 +1,15 @@
 # Booking setup
 
-This site is set up for a Calendly embed that can handle payments via Stripe. Replace the placeholder link with your live booking URL.
+This site now embeds SimplyBook for online booking and payments.
 
 ## Steps
-1. Sign in to Calendly and create an event type with payments enabled.
-2. Copy the share link for the event (for example `https://calendly.com/your-space/50min`).
-3. Open `booking.html` and update the `data-src` value on the booking iframe with that link.
-4. If using a different provider that supports static embeds, replace the iframe accordingly and adjust any instructions shown on the page.
+1. Sign in to SimplyBook and configure your services, availability, and payment settings.
+2. Copy your public SimplyBook URL (example: `https://mmcounselling.simplybook.net`).
+3. Open `booking.html` and, if needed, update the `url` value in the `SimplybookWidget` config with your own link and adjust `theme_settings` to match your palette.
+4. If switching to a different provider, replace the embed script block in `booking.html` and update any on-page instructions.
 
 ## Payment notes
-- Ensure payments are required for the event in Calendly so clients can pay during booking.
+- Enable payments within SimplyBook so clients can pay during booking.
 - Confirm the booking confirmation email includes payment details.
 
 ## Fallback contact
