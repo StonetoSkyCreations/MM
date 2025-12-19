@@ -1,18 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const navList = document.querySelector('.nav-list');
-
   if (toggle && navList) {
+    const closeNav = () => {
+      navList.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    };
+
     toggle.addEventListener('click', () => {
       const isOpen = navList.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      if (isOpen) {
+        const firstLink = navList.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
     });
 
     navList.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navList.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
       });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navList.classList.contains('open')) {
+        closeNav();
+        toggle.focus();
+      }
     });
   }
 
@@ -33,5 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingEmbed = document.querySelector('[data-booking-embed]');
   if (bookingEmbed && bookingEmbed.dataset.src) {
     bookingEmbed.src = bookingEmbed.dataset.src;
+  }
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealElements = document.querySelectorAll('.reveal');
+  if (prefersReduced) {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  } else if (revealElements.length) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealElements.forEach(el => observer.observe(el));
   }
 });

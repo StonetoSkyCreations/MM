@@ -13,8 +13,7 @@ This site is plain HTML, CSS, and minimal JavaScript. Edit copy directly in the 
 - Update the Open Graph image URL if you change the image location.
 
 ## Booking embed
-- Update the booking iframe on `booking.html` by replacing the `data-src` value with the live booking link.
-- The script in `assets/js/main.js` copies `data-src` into the iframe `src` once loaded.
+- The booking embed on `booking.html` uses a SimplyBook widget. Update the `url` inside the `SimplybookWidget` script block with your live booking link and adjust `theme_settings` if needed.
 
 ## Contact form
 - The contact form currently opens the visitor's email client via `mailto:contact@example.com`. Replace that email address with the preferred contact email or swap the form action to your form provider's endpoint.
@@ -22,6 +21,7 @@ This site is plain HTML, CSS, and minimal JavaScript. Edit copy directly in the 
 ## Style tweaks
 - Colors, spacing, and typography live in `assets/css/styles.css`. Adjust CSS variables at the top of that file for palette changes.
 - Keep the maximum content width around 1100px and preserve the generous spacing for readability.
+- A soft background utility (`.bg-soft-image`) uses `assets/img/background-placeholder.svg` at low opacity; replace that file or update the URL in CSS to change the imagery.
 
 ## Accessibility and tone
 - Maintain descriptive link text and visible focus states.
