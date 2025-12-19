@@ -492,6 +492,59 @@ hr {
   z-index: 1;
 }
 
+.faq {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: 16px var(--spacing-lg);
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.faq-icon {
+  font-size: 1.2rem;
+  transition: transform 180ms ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  color: var(--muted);
+  display: none;
+}
+
+.faq-answer.is-open {
+  display: block;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

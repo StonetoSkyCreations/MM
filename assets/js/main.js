@@ -68,4 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
     revealElements.forEach(el => observer.observe(el));
   }
+
+  const faqToggles = document.querySelectorAll('.faq-question');
+  faqToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling;
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if (answer) {
+        const isOpen = !expanded;
+        answer.classList.toggle('is-open', isOpen);
+        answer.hidden = !isOpen;
+      }
+    });
+  });
 });
