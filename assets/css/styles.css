@@ -290,18 +290,6 @@ p {
   margin-bottom: var(--space-sm);
 }
 
-.trust-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(215, 227, 210, 0.8);
-  border: 1px solid rgba(215, 203, 191, 0.8);
-  font-weight: 600;
-  color: var(--ink);
-}
-
 .hero {
   background: var(--surface);
   border: 1px solid rgba(215, 203, 191, 0.8);
