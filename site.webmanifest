@@ -1,7 +1,7 @@
 {
   "name": "Michael Multhaup Counselling",
   "short_name": "Multhaup",
-  "start_url": "/index.html",
+  "start_url": "/MM/index.html",
   "display": "standalone",
   "background_color": "#f5f0e6",
   "theme_color": "#b4633c",
