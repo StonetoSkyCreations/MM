@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('is-loaded');
+
   const toggle = document.querySelector('.nav-toggle');
   const navList = document.querySelector('.nav-list');
   if (toggle && navList) {
+    toggle.setAttribute('aria-label', 'Open menu');
+
     const closeNav = () => {
       navList.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
@@ -20,9 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navList.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navList.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
+        closeNav();
       });
     });
 
@@ -53,8 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingEmbed.src = bookingEmbed.dataset.src;
   }
 
+  const bookingContainer = document.querySelector('[data-booking-container]');
+  if (bookingContainer) {
+    const applyTitle = () => {
+      const iframe = bookingContainer.querySelector('iframe');
+      if (iframe && !iframe.title) {
+        iframe.title = 'Booking calendar for Michael Multhaup Counselling';
+      }
+    };
+
+    const observer = new MutationObserver(() => applyTitle());
+    observer.observe(bookingContainer, { childList: true, subtree: true });
+    applyTitle();
+  }
+
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealElements = document.querySelectorAll('.reveal');
+  const revealElements = document.querySelectorAll('.reveal, .stagger');
   if (prefersReduced) {
     revealElements.forEach(el => el.classList.add('is-visible'));
   } else if (revealElements.length) {
@@ -65,21 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.18 });
     revealElements.forEach(el => observer.observe(el));
   }
-
-  const faqToggles = document.querySelectorAll('.faq-question');
-  faqToggles.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const answer = btn.nextElementSibling;
-      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      if (answer) {
-        const isOpen = !expanded;
-        answer.classList.toggle('is-open', isOpen);
-        answer.hidden = !isOpen;
-      }
-    });
-  });
 });

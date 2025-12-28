@@ -3,8 +3,8 @@
   "short_name": "Multhaup",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#f7f7f3",
-  "theme_color": "#2f6f7a",
+  "background_color": "#f5f0e6",
+  "theme_color": "#b4633c",
   "icons": [
     {
       "src": "assets/img/favicon.svg",
