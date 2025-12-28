@@ -851,6 +851,7 @@ body.is-loaded .hero-panel {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
     background: var(--surface);
     border: 1px solid rgba(215, 203, 191, 0.8);
     box-shadow: var(--shadow);
